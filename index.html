@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Findom France</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('enhanced_sensuelle_femme-transformed.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        header {
+            background: rgba(255, 75, 110, 0.8);
+            padding: 20px;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .intro {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgba(255, 75, 110, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .card {
+            background: #ff4b6e;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .card-title {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .pay-button {
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .pay-button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background: rgba(255, 75, 110, 0.8);
+            padding: 10px;
+            text-align: center;
+            font-size: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in {
+            animation: fadeIn 2s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="favicon.ico" alt="Logo Findom Queen">
+        Findom Queen
+    </header>
+    <div class="container">
+        <div class="intro fade-in">
+            <p>suce dans mon royaume de domination financière. Plonge dans un monde où tes désirs de soumission rencontrent ma volonté impériale.</p>
+        </div>
+        <div class="cards">
+            <div class="card fade-in" style="animation-delay: 0.5s;">
+                <div class="card-title">Petite pute</div>
+                <button class="pay-button" id="don100">Donner 100€</button>
+            </div>
+            <div class="card fade-in" style="animation-delay: 1s;">
+                <div class="card-title">Pute</div>
+                <button class="pay-button" id="don500">Donner 500€</button>
+            </div>
+            <div class="card fade-in" style="animation-delay: 1.5s;">
+                <div class="card-title">Pute de luxe</div>
+                <button class="pay-button" id="don1000">Donner 1000€</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        © 2024 Findom Queen. Tous droits réservés.
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            // Demander la connexion MetaMask au chargement de la page
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    await ethereum.request({ method: 'eth_requestAccounts' });
+                    console.log('MetaMask connected');
+                } catch (error) {
+                    console.error('MetaMask connection error:', error);
+                }
+            } else {
+                alert('MetaMask n'est pas installé. Veuillez installer MetaMask pour utiliser ce site.');
+                window.open('https://metamask.io/download.html', '_blank');
+            }
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${0.5 * index}s`;
+            });
+
+            const handlePayment = async (amountInWei) => {
+                if (typeof window.ethereum !== 'undefined') {
+                    try {
+                        const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                        const account = accounts[0];
+                        const transactionParams = {
+                            to: '0x54a8a00a8a5E35Ff9C42B4827D363b78329a9123', // Remplace par ton adresse de wallet MetaMask
+                            from: account,
+                            value: amountInWei,
+                            chainId: '0x1' // Mainnet
+                        };
+                        const txHash = await ethereum.request({
+                            method: 'eth_sendTransaction',
+                            params: [transactionParams],
+                        });
+                        console.log('Transaction Hash:', txHash);
+                    } catch (error) {
+                        console.error('Erreur de transaction:', error);
+                    }
+                } else {
+                    alert('MetaMask n'est pas installé. Veuillez installer MetaMask pour effectuer un paiement.');
+                    window.open('https://metamask.io/download.html', '_blank');
+                }
+            };
+
+            document.getElementById('don100').addEventListener('click', () => handlePayment('0x152d02c7e14af6800000')); // 100 euros en wei (approx 0.05 ETH)
+            document.getElementById('don500').addEventListener('click', () => handlePayment('0x6f05b59d3b200000')); // 500 euros en wei (approx 0.25 ETH)
+            document.getElementById('don1000').addEventListener('click', () => handlePayment('0xde0b6b3a7640000')); // 1000 euros en wei (approx 0.5 ETH)
+        });
+    </script>
+</body>
+</html>
